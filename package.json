@@ -19,10 +19,12 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
+    "@types/node": "^12.7.12",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.0",
     "tslint": "^5.20.0",
     "tslint-immutable": "^6.0.1",
     "typescript": "^3.6.3",
@@ -33,11 +35,14 @@
   "dependencies": {
     "@types/react": "^16.9.5",
     "@types/react-dom": "^16.9.1",
+    "@types/react-redux": "^7.1.4",
     "esri-loader": "^2.10.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-hot-loader": "^4.12.15",
     "react-redux": "^7.1.1",
-    "redux": "^4.0.4",
-    "regenerator-runtime": "^0.13.3"
+    "redux-thunk": "^2.3.0",
+    "regenerator-runtime": "^0.13.3",
+    "typesafe-actions": "^4.4.2"
   }
 }

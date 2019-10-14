@@ -75,7 +75,7 @@ export const initializeMap = domRef => {
   });
 
   _map = new Map({
-    basemap: 'streets',
+    basemap: 'dark-gray',
   });
 
   _mapview = new MapView({
