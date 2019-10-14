@@ -1,5 +1,9 @@
 import { loadAllModules, loadEsriCss } from '../utils/esriLoader';
 
+import { layers } from '../config/layers.config';
+
+import { layerFactory } from '../controllers/esriMap.util';
+
 let _esriModules;
 let _graphicsLayer;
 let _homeWidget;
@@ -7,6 +11,7 @@ let _map;
 let _mapview;
 let _initialExtent;
 let _legend;
+let _basemap;
 
 export const loadEsriResources = async () => {
   loadEsriCss();
@@ -74,9 +79,15 @@ export const initializeMap = domRef => {
     },
   });
 
+  const mapLayers = layers.map(layer => {
+    return layerFactory(_esriModules, layer);
+  });
+
   _map = new Map({
     basemap: 'dark-gray',
   });
+
+  _map.addMany(mapLayers);
 
   _mapview = new MapView({
     container: domRef.current,
@@ -91,8 +102,6 @@ export const initializeMap = domRef => {
   _legend = new Legend({
     view: _mapview,
   });
-
-  console.log('_legend', _legend);
 
   _mapview
     .when(() => {

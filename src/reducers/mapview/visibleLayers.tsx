@@ -1,4 +1,4 @@
-import * as MyTypes from '../../constants/actionTypesModel';
+import * as MyTypes from '../../constants/typesModule';
 import { actionTypes } from '../../constants/actionTypes';
 
 interface visibleLayersModel {
