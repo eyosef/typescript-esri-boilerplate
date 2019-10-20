@@ -1,3 +1,7 @@
+import store from '../store/store'
+
+import { mapViewActions } from '../reducers/mapview/actions'
+
 import { loadAllModules, loadEsriCss } from '../utils/esriLoader';
 
 import { layers } from '../config/layers.config';
@@ -87,6 +91,9 @@ export const initializeMap = domRef => {
     basemap: 'dark-gray',
   });
 
+
+  // send mapLayers to Redux store
+  store.dispatch(mapViewActions.setLayersWidget(mapLayers))
   _map.addMany(mapLayers);
 
   _mapview = new MapView({
@@ -105,7 +112,7 @@ export const initializeMap = domRef => {
 
   _mapview
     .when(() => {
-      console.log('_mapview is loaded - YAS Queen!');
+      console.log('_mapview is loaded!');
 
       // Zoom widget position
       _mapview.ui.move(['zoom'], 'top-left');
@@ -114,7 +121,7 @@ export const initializeMap = domRef => {
       _mapview.ui.add(_homeWidget, 'top-left');
 
       //add legend widget
-      _mapview.ui.add(_legend, 'top-right');
+      // _mapview.ui.add(_legend, 'top-right');
     })
     .catch(error => console.log('error:', error));
 };

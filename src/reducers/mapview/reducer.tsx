@@ -18,7 +18,7 @@ export default (
   switch (action.type) {
     case actionTypes.TOGGLE_VISIBLE_LAYER:
       debugger;
-      break;
+      return state;
     // if (state.indexOf(action.id) === -1) {
     //   return [...state, action.id];
     // }
@@ -26,6 +26,8 @@ export default (
     //   ...state.slice(0, state.indexOf(action.id)),
     //   ...state.slice(state.indexOf(action.id) + 1),
     // ];
+    case actionTypes.INIT_LAYERS_WIDGET:
+      return action.payload;
     default:
       return state;
   }

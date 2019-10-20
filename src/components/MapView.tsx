@@ -1,5 +1,7 @@
 import React, { Component, createRef } from 'react';
 
+import LayersWidget from './LayersWidget'
+
 import { initializeMap, loadEsriResources } from '../controllers/mapController';
 
 type MapViewProps = {};
@@ -18,6 +20,7 @@ class MapView extends Component<MapViewProps, MapViewState> {
     return (
       <div className='mapview-container'>
         <div className='mapview' ref={this.mapview} />
+        <LayersWidget/>
       </div>
     );
   }

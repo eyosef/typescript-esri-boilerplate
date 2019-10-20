@@ -1,26 +1,20 @@
-// TO DO: refactor into TypeScript
-// https://github.com/piotrwitek/react-redux-typescript-guide#store-configuration
-
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from '../reducers/mapview/visibleLayers';
-// import esriMiddleware from 'middlewares/esriMapview';
+import thunk from 'redux-thunk';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import rootReducer from '../reducers/rootReducer';
 
-// // Configure middleware used by redux
+const composeEnhancers = compose;
+
 const middlewares = [
-  // esriMiddleware
+  thunk
 ];
-
-// Environment specific middlewares configuration - constant from webpack.DefinePlugin
-// if (ENV === 'development') {
-//   const { logger } = require('redux-logger');
-//   middlewares.push(logger);
-// }
 
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(...middlewares)),
+  composeEnhancers(applyMiddleware(...middlewares))
 );
+
+// TO DO: refactor into TypeScript
+// https://github.com/piotrwitek/react-redux-typescript-guide#store-configuration
 
 export default store;
